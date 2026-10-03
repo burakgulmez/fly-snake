@@ -1,0 +1,14 @@
+{
+ "exp": "v2_main_no_recurrence",
+ "seed": 7,
+ "model": "no_recurrence",
+ "n_params": 157,
+ "train_time_s": 39.82934355735779,
+ "test_time_s": 1.2240006923675537,
+ "mean_score": 26.398,
+ "median_score": 27.0,
+ "max_length": 41,
+ "mean_fill": 0.29398,
+ "win_rate": 0.0,
+ "steps_per_food": 12.99492385786802
+}

@@ -1,0 +1,120 @@
+[13:31:32] base_random seed 0
+{"exp": "base_random", "seed": 0, "model": "random", "n_params": 0, "train_time_s": 0.0, "test_time_s": 0.521066427230835, "mean_score": 0.17, "median_score": 0.0, "max_length": 5, "mean_fill": 0.031700000000000006, "win_rate": 0.0, "steps_per_food": 123.30588235294118}
+[13:31:38] base_greedy seed 0
+{"exp": "base_greedy", "seed": 0, "model": "greedy", "n_params": 0, "train_time_s": 0.0, "test_time_s": 0.6357529163360596, "mean_score": 18.352, "median_score": 18.0, "max_length": 42, "mean_fill": 0.21352, "win_rate": 0.0, "steps_per_food": 7.978312990409765}
+[13:31:43] base_floodfill seed 0
+{"exp": "base_floodfill", "seed": 0, "model": "floodfill", "n_params": 0, "train_time_s": 0.0, "test_time_s": 1.0583415031433105, "mean_score": 68.808, "median_score": 81.0, "max_length": 100, "mean_fill": 0.7180799999999999, "win_rate": 0.032, "steps_per_food": 19.945558655970235}
+[13:31:49] main_mlp seed 0
+{"exp": "main_mlp", "seed": 0, "model": "mlp", "n_params": 403, "train_time_s": 7.520961284637451, "test_time_s": 0.2341468334197998, "mean_score": 30.744, "median_score": 32.0, "max_length": 48, "mean_fill": 0.33744, "win_rate": 0.0, "steps_per_food": 14.208951340098881}
+[13:32:01] main_mlp seed 1
+{"exp": "main_mlp", "seed": 1, "model": "mlp", "n_params": 403, "train_time_s": 7.353594541549683, "test_time_s": 0.31481027603149414, "mean_score": 35.054, "median_score": 35.0, "max_length": 59, "mean_fill": 0.38054, "win_rate": 0.0, "steps_per_food": 18.124265419067726}
+[13:32:14] main_mlp seed 2
+{"exp": "main_mlp", "seed": 2, "model": "mlp", "n_params": 403, "train_time_s": 7.436782121658325, "test_time_s": 0.2464771270751953, "mean_score": 23.404, "median_score": 24.0, "max_length": 34, "mean_fill": 0.26404, "win_rate": 0.0, "steps_per_food": 16.708254999145446}
+[13:32:26] main_mlp seed 3
+{"exp": "main_mlp", "seed": 3, "model": "mlp", "n_params": 403, "train_time_s": 7.228229522705078, "test_time_s": 0.29424285888671875, "mean_score": 33.28, "median_score": 33.0, "max_length": 53, "mean_fill": 0.3628, "win_rate": 0.0, "steps_per_food": 15.881670673076924}
+[13:32:39] main_mlp seed 4
+{"exp": "main_mlp", "seed": 4, "model": "mlp", "n_params": 403, "train_time_s": 7.007626056671143, "test_time_s": 0.24651217460632324, "mean_score": 30.15, "median_score": 30.0, "max_length": 53, "mean_fill": 0.3315, "win_rate": 0.0, "steps_per_food": 14.295986733001659}
+[13:32:51] main_connectome seed 0
+{"exp": "main_connectome", "seed": 0, "model": "connectome", "n_params": 405, "train_time_s": 123.87449240684509, "test_time_s": 5.716608047485352, "mean_score": 19.976, "median_score": 21.0, "max_length": 33, "mean_fill": 0.22976, "win_rate": 0.0, "steps_per_food": 13.996295554665599}
+[13:35:05] main_degree_shuffle seed 0
+{"exp": "main_degree_shuffle", "seed": 0, "model": "degree_shuffle", "n_params": 405, "train_time_s": 117.27236008644104, "test_time_s": 6.025942087173462, "mean_score": 21.298, "median_score": 22.0, "max_length": 44, "mean_fill": 0.24298000000000003, "win_rate": 0.0, "steps_per_food": 12.88233636961217}
+[13:37:14] main_erdos_renyi seed 0
+{"exp": "main_erdos_renyi", "seed": 0, "model": "erdos_renyi", "n_params": 405, "train_time_s": 117.72537422180176, "test_time_s": 8.43821120262146, "mean_score": 28.464, "median_score": 30.0, "max_length": 50, "mean_fill": 0.31464, "win_rate": 0.0, "steps_per_food": 15.073074761101742}
+[13:39:25] main_sign_shuffle seed 0
+{"exp": "main_sign_shuffle", "seed": 0, "model": "sign_shuffle", "n_params": 405, "train_time_s": 114.13477516174316, "test_time_s": 6.62619423866272, "mean_score": 22.016, "median_score": 22.0, "max_length": 34, "mean_fill": 0.25016000000000005, "win_rate": 0.0, "steps_per_food": 16.049146075581394}
+[13:41:30] main_no_recurrence seed 0
+{"exp": "main_no_recurrence", "seed": 0, "model": "no_recurrence", "n_params": 405, "train_time_s": 48.99432063102722, "test_time_s": 2.783390522003174, "mean_score": 20.904, "median_score": 21.0, "max_length": 34, "mean_fill": 0.23904000000000003, "win_rate": 0.0, "steps_per_food": 15.560753922694222}
+[13:42:26] main_connectome seed 1
+{"exp": "main_connectome", "seed": 1, "model": "connectome", "n_params": 405, "train_time_s": 112.4365622997284, "test_time_s": 8.896036624908447, "mean_score": 28.11, "median_score": 28.0, "max_length": 47, "mean_fill": 0.31110000000000004, "win_rate": 0.0, "steps_per_food": 16.425329064389896}
+[13:44:32] main_degree_shuffle seed 1
+{"exp": "main_degree_shuffle", "seed": 1, "model": "degree_shuffle", "n_params": 405, "train_time_s": 116.19123888015747, "test_time_s": 7.219529151916504, "mean_score": 21.36, "median_score": 22.0, "max_length": 34, "mean_fill": 0.24359999999999998, "win_rate": 0.0, "steps_per_food": 17.16807116104869}
+[13:46:41] main_erdos_renyi seed 1
+{"exp": "main_erdos_renyi", "seed": 1, "model": "erdos_renyi", "n_params": 405, "train_time_s": 116.2795512676239, "test_time_s": 7.532832622528076, "mean_score": 26.898, "median_score": 27.0, "max_length": 54, "mean_fill": 0.29898, "win_rate": 0.0, "steps_per_food": 13.530522715443528}
+[13:48:49] main_sign_shuffle seed 1
+{"exp": "main_sign_shuffle", "seed": 1, "model": "sign_shuffle", "n_params": 405, "train_time_s": 115.63540005683899, "test_time_s": 6.859223127365112, "mean_score": 21.08, "median_score": 21.0, "max_length": 32, "mean_fill": 0.24080000000000001, "win_rate": 0.0, "steps_per_food": 16.057020872865277}
+[13:50:56] main_no_recurrence seed 1
+{"exp": "main_no_recurrence", "seed": 1, "model": "no_recurrence", "n_params": 405, "train_time_s": 53.41533374786377, "test_time_s": 3.7864603996276855, "mean_score": 25.596, "median_score": 26.0, "max_length": 37, "mean_fill": 0.28596, "win_rate": 0.0, "steps_per_food": 17.578918581028287}
+[13:51:58] main_connectome seed 2
+{"exp": "main_connectome", "seed": 2, "model": "connectome", "n_params": 405, "train_time_s": 152.82936596870422, "test_time_s": 2.481550455093384, "mean_score": 11.932, "median_score": 12.0, "max_length": 24, "mean_fill": 0.14931999999999998, "win_rate": 0.0, "steps_per_food": 10.964465303385854}
+[13:54:38] main_degree_shuffle seed 2
+{"exp": "main_degree_shuffle", "seed": 2, "model": "degree_shuffle", "n_params": 405, "train_time_s": 111.08903098106384, "test_time_s": 7.1328277587890625, "mean_score": 25.944, "median_score": 26.0, "max_length": 45, "mean_fill": 0.28944000000000003, "win_rate": 0.0, "steps_per_food": 14.39831945729263}
+[13:56:41] main_erdos_renyi seed 2
+{"exp": "main_erdos_renyi", "seed": 2, "model": "erdos_renyi", "n_params": 405, "train_time_s": 109.80808353424072, "test_time_s": 7.100419998168945, "mean_score": 21.028, "median_score": 21.0, "max_length": 36, "mean_fill": 0.24028, "win_rate": 0.0, "steps_per_food": 17.44074567243675}
+[13:58:43] main_sign_shuffle seed 2
+{"exp": "main_sign_shuffle", "seed": 2, "model": "sign_shuffle", "n_params": 405, "train_time_s": 113.56153130531311, "test_time_s": 6.3166937828063965, "mean_score": 21.092, "median_score": 21.0, "max_length": 32, "mean_fill": 0.24092000000000002, "win_rate": 0.0, "steps_per_food": 15.64602692964157}
+[14:00:47] main_no_recurrence seed 2
+{"exp": "main_no_recurrence", "seed": 2, "model": "no_recurrence", "n_params": 405, "train_time_s": 51.65950584411621, "test_time_s": 3.7621781826019287, "mean_score": 27.582, "median_score": 28.0, "max_length": 47, "mean_fill": 0.30582, "win_rate": 0.0, "steps_per_food": 16.65412225364368}
+[14:01:48] main_connectome seed 3
+{"exp": "main_connectome", "seed": 3, "model": "connectome", "n_params": 405, "train_time_s": 104.14805340766907, "test_time_s": 5.874062538146973, "mean_score": 20.674, "median_score": 21.0, "max_length": 32, "mean_fill": 0.23674, "win_rate": 0.0, "steps_per_food": 15.380574634807004}
+[14:03:42] main_degree_shuffle seed 3
+{"exp": "main_degree_shuffle", "seed": 3, "model": "degree_shuffle", "n_params": 405, "train_time_s": 110.02823328971863, "test_time_s": 4.613546371459961, "mean_score": 18.132, "median_score": 18.0, "max_length": 31, "mean_fill": 0.21131999999999998, "win_rate": 0.0, "steps_per_food": 13.649459519082285}
+[14:05:42] main_erdos_renyi seed 3
+{"exp": "main_erdos_renyi", "seed": 3, "model": "erdos_renyi", "n_params": 405, "train_time_s": 113.20078539848328, "test_time_s": 7.438518285751343, "mean_score": 22.466, "median_score": 22.0, "max_length": 34, "mean_fill": 0.25466, "win_rate": 0.0, "steps_per_food": 16.48704709338556}
+[14:07:47] main_sign_shuffle seed 3
+{"exp": "main_sign_shuffle", "seed": 3, "model": "sign_shuffle", "n_params": 405, "train_time_s": 118.2093575000763, "test_time_s": 8.74648404121399, "mean_score": 25.4, "median_score": 25.0, "max_length": 41, "mean_fill": 0.284, "win_rate": 0.0, "steps_per_food": 16.798425196850392}
+[14:09:59] main_no_recurrence seed 3
+{"exp": "main_no_recurrence", "seed": 3, "model": "no_recurrence", "n_params": 405, "train_time_s": 52.15644383430481, "test_time_s": 2.7657182216644287, "mean_score": 20.97, "median_score": 21.0, "max_length": 32, "mean_fill": 0.2397, "win_rate": 0.0, "steps_per_food": 15.590081068192656}
+[14:10:58] main_connectome seed 4
+{"exp": "main_connectome", "seed": 4, "model": "connectome", "n_params": 405, "train_time_s": 193.44149136543274, "test_time_s": 1.310016393661499, "mean_score": 4.642, "median_score": 4.0, "max_length": 16, "mean_fill": 0.07642000000000002, "win_rate": 0.0, "steps_per_food": 14.45713054717794}
+[14:14:17] main_degree_shuffle seed 4
+{"exp": "main_degree_shuffle", "seed": 4, "model": "degree_shuffle", "n_params": 405, "train_time_s": 109.39236974716187, "test_time_s": 10.851244449615479, "mean_score": 32.856, "median_score": 33.0, "max_length": 50, "mean_fill": 0.35855999999999993, "win_rate": 0.0, "steps_per_food": 17.288836133430728}
+[14:16:22] main_erdos_renyi seed 4
+{"exp": "main_erdos_renyi", "seed": 4, "model": "erdos_renyi", "n_params": 405, "train_time_s": 114.61583471298218, "test_time_s": 8.484909534454346, "mean_score": 26.106, "median_score": 26.0, "max_length": 43, "mean_fill": 0.29105999999999993, "win_rate": 0.0, "steps_per_food": 16.021757450394546}
+[14:18:30] main_sign_shuffle seed 4
+{"exp": "main_sign_shuffle", "seed": 4, "model": "sign_shuffle", "n_params": 405, "train_time_s": 115.2754008769989, "test_time_s": 8.382607221603394, "mean_score": 23.99, "median_score": 25.0, "max_length": 36, "mean_fill": 0.2699, "win_rate": 0.0, "steps_per_food": 18.421008753647353}
+[14:20:39] main_no_recurrence seed 4
+{"exp": "main_no_recurrence", "seed": 4, "model": "no_recurrence", "n_params": 405, "train_time_s": 53.349082231521606, "test_time_s": 5.44577169418335, "mean_score": 38.324, "median_score": 38.0, "max_length": 62, "mean_fill": 0.41324, "win_rate": 0.0, "steps_per_food": 16.335612149044984}
+[14:21:42] abl_feat_food_danger seed 0
+{"exp": "abl_feat_food_danger", "seed": 0, "model": "connectome", "n_params": 293, "train_time_s": 107.10539484024048, "test_time_s": 9.870340824127197, "mean_score": 26.092, "median_score": 27.0, "max_length": 38, "mean_fill": 0.29092, "win_rate": 0.0, "steps_per_food": 19.642725739690327}
+[14:23:44] abl_feat_food_danger_space seed 0
+{"exp": "abl_feat_food_danger_space", "seed": 0, "model": "connectome", "n_params": 389, "train_time_s": 107.18911981582642, "test_time_s": 7.499246597290039, "mean_score": 21.782, "median_score": 22.0, "max_length": 35, "mean_fill": 0.24781999999999998, "win_rate": 0.0, "steps_per_food": 18.207694426590763}
+[14:25:43] abl_fitness_food_only seed 0
+{"exp": "abl_fitness_food_only", "seed": 0, "model": "connectome", "n_params": 405, "train_time_s": 101.23027276992798, "test_time_s": 5.92891788482666, "mean_score": 20.724, "median_score": 20.0, "max_length": 32, "mean_fill": 0.23724, "win_rate": 0.0, "steps_per_food": 15.459660297239916}
+[14:27:35] abl_feat_food_danger seed 1
+{"exp": "abl_feat_food_danger", "seed": 1, "model": "connectome", "n_params": 293, "train_time_s": 100.64184665679932, "test_time_s": 5.701334238052368, "mean_score": 20.874, "median_score": 21.0, "max_length": 34, "mean_fill": 0.23874, "win_rate": 0.0, "steps_per_food": 14.740442655935613}
+[14:29:26] abl_feat_food_danger_space seed 1
+{"exp": "abl_feat_food_danger_space", "seed": 1, "model": "connectome", "n_params": 389, "train_time_s": 113.94992876052856, "test_time_s": 8.428544044494629, "mean_score": 25.38, "median_score": 26.0, "max_length": 39, "mean_fill": 0.2838, "win_rate": 0.0, "steps_per_food": 18.23892828999212}
+[14:31:33] abl_fitness_food_only seed 1
+{"exp": "abl_fitness_food_only", "seed": 1, "model": "connectome", "n_params": 405, "train_time_s": 108.30447125434875, "test_time_s": 6.550336599349976, "mean_score": 12.626, "median_score": 12.0, "max_length": 38, "mean_fill": 0.15625999999999998, "win_rate": 0.0, "steps_per_food": 27.334706161888167}
+[14:33:33] abl_feat_food_danger seed 2
+{"exp": "abl_feat_food_danger", "seed": 2, "model": "connectome", "n_params": 293, "train_time_s": 106.21634197235107, "test_time_s": 7.592024803161621, "mean_score": 23.098, "median_score": 23.0, "max_length": 35, "mean_fill": 0.26098000000000005, "win_rate": 0.0, "steps_per_food": 17.61494501688458}
+[14:35:31] abl_feat_food_danger_space seed 2
+{"exp": "abl_feat_food_danger_space", "seed": 2, "model": "connectome", "n_params": 389, "train_time_s": 110.14558720588684, "test_time_s": 6.977843284606934, "mean_score": 25.188, "median_score": 26.0, "max_length": 40, "mean_fill": 0.28188, "win_rate": 0.0, "steps_per_food": 14.591233920914721}
+[14:37:33] abl_fitness_food_only seed 2
+{"exp": "abl_fitness_food_only", "seed": 2, "model": "connectome", "n_params": 405, "train_time_s": 108.20055150985718, "test_time_s": 6.959779977798462, "mean_score": 21.434, "median_score": 22.0, "max_length": 34, "mean_fill": 0.24434, "win_rate": 0.0, "steps_per_food": 17.259494261453764}
+[14:39:33] abl_feat_food_danger seed 3
+{"exp": "abl_feat_food_danger", "seed": 3, "model": "connectome", "n_params": 293, "train_time_s": 111.42923402786255, "test_time_s": 5.698693752288818, "mean_score": 19.564, "median_score": 20.0, "max_length": 31, "mean_fill": 0.22564, "win_rate": 0.0, "steps_per_food": 15.303209977509711}
+[14:41:35] abl_feat_food_danger_space seed 3
+{"exp": "abl_feat_food_danger_space", "seed": 3, "model": "connectome", "n_params": 389, "train_time_s": 111.90683889389038, "test_time_s": 7.915300130844116, "mean_score": 21.4, "median_score": 21.0, "max_length": 34, "mean_fill": 0.244, "win_rate": 0.0, "steps_per_food": 19.861588785046727}
+[14:43:39] abl_fitness_food_only seed 3
+{"exp": "abl_fitness_food_only", "seed": 3, "model": "connectome", "n_params": 405, "train_time_s": 106.78492760658264, "test_time_s": 1.988532543182373, "mean_score": 5.524, "median_score": 5.0, "max_length": 22, "mean_fill": 0.08524000000000001, "win_rate": 0.0, "steps_per_food": 18.549963794351918}
+[14:45:33] abl_feat_food_danger seed 4
+{"exp": "abl_feat_food_danger", "seed": 4, "model": "connectome", "n_params": 293, "train_time_s": 106.4687647819519, "test_time_s": 5.911057710647583, "mean_score": 19.52, "median_score": 20.0, "max_length": 33, "mean_fill": 0.2252, "win_rate": 0.0, "steps_per_food": 17.13247950819672}
+[14:47:29] abl_feat_food_danger_space seed 4
+{"exp": "abl_feat_food_danger_space", "seed": 4, "model": "connectome", "n_params": 389, "train_time_s": 103.29987502098083, "test_time_s": 4.241162538528442, "mean_score": 17.206, "median_score": 17.0, "max_length": 30, "mean_fill": 0.20205999999999996, "win_rate": 0.0, "steps_per_food": 13.973032663024526}
+[14:49:21] abl_fitness_food_only seed 4
+{"exp": "abl_fitness_food_only", "seed": 4, "model": "connectome", "n_params": 405, "train_time_s": 101.89640426635742, "test_time_s": 5.773014783859253, "mean_score": 24.196, "median_score": 24.0, "max_length": 45, "mean_fill": 0.27196, "win_rate": 0.0, "steps_per_food": 12.780211605224004}
+[14:51:13] scale_A800 seed 0
+{"exp": "scale_A800", "seed": 0, "model": "connectome", "n_params": 405, "train_time_s": 416.5144429206848, "test_time_s": 33.029625415802, "mean_score": 27.414, "median_score": 28.0, "max_length": 45, "mean_fill": 0.30413999999999997, "win_rate": 0.0, "steps_per_food": 15.308017801123514}
+[14:58:47] scale_A800 seed 1
+{"exp": "scale_A800", "seed": 1, "model": "connectome", "n_params": 405, "train_time_s": 419.2280011177063, "test_time_s": 38.050793409347534, "mean_score": 32.916, "median_score": 32.0, "max_length": 60, "mean_fill": 0.35916, "win_rate": 0.0, "steps_per_food": 14.780349981771783}
+[15:06:29] scale_A800 seed 2
+{"exp": "scale_A800", "seed": 2, "model": "connectome", "n_params": 405, "train_time_s": 414.76419734954834, "test_time_s": 27.479758501052856, "mean_score": 21.238, "median_score": 21.0, "max_length": 32, "mean_fill": 0.24237999999999998, "win_rate": 0.0, "steps_per_food": 16.217157924474996}
+[15:13:55] scale_A800 seed 3
+{"exp": "scale_A800", "seed": 3, "model": "connectome", "n_params": 405, "train_time_s": 435.0450448989868, "test_time_s": 30.403814554214478, "mean_score": 20.594, "median_score": 20.0, "max_length": 31, "mean_fill": 0.23594, "win_rate": 0.0, "steps_per_food": 16.66757307953773}
+[15:21:45] scale_A800 seed 4
+{"exp": "scale_A800", "seed": 4, "model": "connectome", "n_params": 405, "train_time_s": 419.64105439186096, "test_time_s": 27.065518140792847, "mean_score": 21.336, "median_score": 21.0, "max_length": 33, "mean_fill": 0.24336000000000002, "win_rate": 0.0, "steps_per_food": 15.70978627671541}
+                           exp  n_seeds  mean_score_mean  mean_score_sd  win_rate_mean  train_time_s_mean
+0         abl_feat_food_danger        5          21.8296       2.790934          0.000         106.372316
+1   abl_feat_food_danger_space        5          22.1912       3.346450          0.000         109.298270
+2        abl_fitness_food_only        5          16.9008       7.682646          0.000         105.283325
+3               base_floodfill        1          68.8080       0.000000          0.032           0.000000
+4                  base_greedy        1          18.3520       0.000000          0.000           0.000000
+5                  base_random        1           0.1700       0.000000          0.000           0.000000
+6              main_connectome        5          17.0668       9.002353          0.000         137.345993
+7          main_degree_shuffle        5          23.9180       5.720098          0.000         112.794647
+8             main_erdos_renyi        5          24.9924       3.123403          0.000         114.325926
+9                     main_mlp        5          30.5264       4.444071          0.000           7.309439
+10          main_no_recurrence        5          26.6752       7.133329          0.000          51.914937
+11           main_sign_shuffle        5          22.7156       1.912512          0.000         115.363293
+12                  scale_A800        5          24.6996       5.362593          0.000         421.038548

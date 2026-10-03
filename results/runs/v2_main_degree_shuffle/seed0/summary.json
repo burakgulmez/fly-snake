@@ -1,0 +1,14 @@
+{
+ "exp": "v2_main_degree_shuffle",
+ "seed": 0,
+ "model": "degree_shuffle",
+ "n_params": 157,
+ "train_time_s": 72.47400069236755,
+ "test_time_s": 3.8862149715423584,
+ "mean_score": 28.484,
+ "median_score": 28.0,
+ "max_length": 40,
+ "mean_fill": 0.31483999999999995,
+ "win_rate": 0.0,
+ "steps_per_food": 21.49894677713804
+}

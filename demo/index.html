@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fly Connectome Snake</title>
+<style>
+  :root {
+    --bg: #fcfcfb; --panel: #f4f3f0; --ink: #0b0b0b; --ink2: #52514e; --line: #dddcd6;
+    --snake: #2a78d6; --head: #0d366b; --food: #e34948; --exc: #2a78d6; --inh: #e34948;
+    --accent: #2a78d6; --btn: #ffffff; --outline: #0d366b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141413; --panel: #1f1f1d; --ink: #f4f3ee; --ink2: #c3c2b7; --line: #383835;
+      --snake: #3987e5; --head: #9ec5f4; --food: #e66767; --exc: #3987e5; --inh: #e66767;
+      --accent: #3987e5; --btn: #2a2a28; --outline: #e8e7e1;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141413; --panel: #1f1f1d; --ink: #f4f3ee; --ink2: #c3c2b7; --line: #383835;
+    --snake: #3987e5; --head: #9ec5f4; --food: #e66767; --exc: #3987e5; --inh: #e66767;
+    --accent: #3987e5; --btn: #2a2a28; --outline: #e8e7e1;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 1.35rem; margin: 0 0 4px; }
+  .sub { color: var(--ink2); margin: 0 0 14px; }
+  .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+  canvas { width: 100%; height: auto; display: block; border-radius: 6px; }
+  .stats { display: flex; flex-wrap: wrap; gap: 14px; margin: 8px 0; font-variant-numeric: tabular-nums; }
+  .stats b { font-size: 1.1rem; }
+  .stats span { color: var(--ink2); font-size: .8rem; display: block; }
+  .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 6px 0; }
+  button, select, input { font: inherit; color: var(--ink); background: var(--btn); border: 1px solid var(--line);
+                          border-radius: 6px; padding: 5px 10px; }
+  button { cursor: pointer; }
+  button.on { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+  input[type=number] { width: 8.5em; }
+  label { color: var(--ink2); font-size: .85rem; }
+  .bars { display: grid; grid-template-columns: 5.5em 1fr 3.5em; gap: 4px 8px; align-items: center; font-size: .85rem; }
+  .bar { height: 10px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .bar > div { height: 100%; background: var(--accent); border-radius: 4px; }
+  .note { color: var(--ink2); font-size: .85rem; border-left: 3px solid var(--accent); padding-left: 10px; margin-top: 16px; }
+  .legend { color: var(--ink2); font-size: .8rem; }
+  .sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: middle; margin: 0 3px 0 8px; }
+  .err { color: var(--food); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Fly Connectome Snake</h1>
+  <p class="sub">A fixed recurrent network built from the wiring of a real fruit-fly (FlyWire) brain subcircuit plays Snake through a small trained input/output interface.</p>
+
+  <div class="grid">
+    <div class="card">
+      <canvas id="board" width="400" height="400" aria-label="Snake board"></canvas>
+      <div class="stats">
+        <div><span>Score</span><b id="s-score">0</b></div>
+        <div><span>Length</span><b id="s-len">3</b></div>
+        <div><span>Board filled</span><b id="s-fill">3%</b></div>
+        <div><span>Steps</span><b id="s-steps">0</b></div>
+        <div><span>Status</span><b id="s-status">ready</b></div>
+      </div>
+      <div class="row">
+        <button id="b-start">Start</button><button id="b-step">Step</button><button id="b-new">New game</button>
+        <label>seed <input id="i-seed" type="number" value="1000000000"></label>
+      </div>
+      <div class="row">
+        <label>Speed</label>
+        <button data-speed="1" class="on">Normal</button><button data-speed="10">Fast 10×</button><button data-speed="0">Turbo</button>
+      </div>
+      <div class="row">
+        <label>Network</label>
+        <select id="sel-model"></select>
+        <button id="b-lesion">Silence most active 5%</button>
+      </div>
+      <div class="row legend" id="turbo-info"></div>
+    </div>
+
+    <div class="card">
+      <div class="row" style="justify-content:space-between"><b>Brain activity</b>
+        <span class="legend"><span class="sw" style="background:var(--exc)"></span>positive
+          <span class="sw" style="background:var(--inh)"></span>negative</span></div>
+      <canvas id="brain" width="500" height="340" aria-label="Neuron activity"></canvas>
+      <div class="legend" id="brain-legend">Left column: visual projection (input) neurons · middle: intermediate · right: descending (output) neurons. Dot = one neuron; colour = tanh activity; a black ring marks a silenced neuron.</div>
+      <div style="margin-top:10px"><b>Readout → action</b></div>
+      <div class="bars" id="bars"></div>
+    </div>
+  </div>
+
+  <p class="note"><b>What this is and isn't.</b> This is not a copy of a fly's mind, and flies do not play Snake. The network's connections come from a real brain wiring map (FlyWire FAFB v783): a subcircuit of visual projection and descending neurons, with synapse counts turned into fixed weights and inhibition assumed from predicted neurotransmitters. Only a small interface (157 numbers) was trained. It maps simple game sensors (where the food is relative to the head, and how close walls or the body are in each direction) onto input neurons, and reads the action from output neurons. The network shown is a typical one: the median of 10 training seeds, scoring 26.7 food per game on 500 test games. Across 10 seeds the real wiring scored 27.3 ± 3.6 food per game and a degree-preserving shuffled graph 26.9 ± 2.4. A network with no internal connections at all scored 28.9 ± 2.9. The real fly wiring was <b>no better</b> than random wiring at this task.</p>
+  <p class="legend" id="load-err"></p>
+</div>
+
+<script src="sim.js"></script>
+<script src="weights.js"></script>
+<script>
+(function () {
+  "use strict";
+  const S = window.FlySnake, DATA = window.FLY_WEIGHTS;
+  const $ = (id) => document.getElementById(id);
+  if (!DATA) { $("load-err").innerHTML = '<span class="err">weights.js not found.</span>'; return; }
+  let COL = {};
+  function readColors() {
+    const cs = getComputedStyle(document.documentElement);
+    for (const k of ["--bg", "--line", "--snake", "--head", "--food", "--outline", "--panel", "--exc", "--inh", "--ink"])
+      COL[k] = cs.getPropertyValue(k).trim();
+  }
+  readColors();
+  const css = (v) => COL[v];
+
+  let modelKey = DATA.default, net, meta, game, lesioned = false, running = false, speed = 1, timer = null;
+  const u = new Float64Array(S.N_FEATURES_MAX), areas = new Float64Array(3);
+  let scratch;
+
+  const sel = $("sel-model");
+  for (const k of Object.keys(DATA.models)) {
+    const o = document.createElement("option"); o.value = k; o.textContent = DATA.models[k].label; sel.appendChild(o);
+  }
+  sel.value = modelKey;
+
+  function loadModel(k) {
+    modelKey = k; meta = DATA.models[k]; net = new S.RateNet(meta); lesioned = false;
+    $("b-lesion").classList.remove("on"); layoutBrain(); newGame();
+  }
+
+  function newGame() {
+    const seed = Math.max(0, parseInt($("i-seed").value, 10) || 0);
+    game = new S.Game(meta.grid, seed, meta.timeout_k);
+    scratch = { stack: new Int32Array(meta.grid ** 2), seen: new Uint8Array(meta.grid ** 2), segidx: new Int32Array(meta.grid ** 2) };
+    net.reset(); applyMask(); draw();
+  }
+
+  function applyMask() {
+    net.mask.fill(1);
+    if (lesioned) for (const i of meta.lesion_top) net.mask[i] = 0;
+  }
+
+  function tick() {
+    if (game.done) { stop(); return false; }
+    S.features(game, u, areas, scratch, meta.feat_version || 1);
+    const a = net.forward(u);
+    game.step(a);
+    return true;
+  }
+
+  // ---- drawing ----
+  const board = $("board"), bctx = board.getContext("2d");
+  function drawBoard() {
+    const G = meta.grid, W = board.width, c = W / G;
+    bctx.fillStyle = css("--bg"); bctx.fillRect(0, 0, W, W);
+    bctx.strokeStyle = css("--line"); bctx.lineWidth = 1;
+    for (let i = 0; i <= G; i++) {
+      bctx.beginPath(); bctx.moveTo(i * c, 0); bctx.lineTo(i * c, W); bctx.stroke();
+      bctx.beginPath(); bctx.moveTo(0, i * c); bctx.lineTo(W, i * c); bctx.stroke();
+    }
+    // body: a thick path through segment centres in body order, drawn twice
+    // (dark outline, then fill) so touching-but-unconnected segments stay separated
+    const ctr = (cell) => [((cell % G) + .5) * c, (Math.floor(cell / G) + .5) * c];
+    bctx.lineCap = "round"; bctx.lineJoin = "round";
+    for (const pass of [0, 1]) {
+      bctx.strokeStyle = pass ? css("--snake") : css("--outline");
+      bctx.lineWidth = pass ? c * 0.56 : c * 0.56 + 4;
+      bctx.beginPath();
+      for (let i = 0; i < game.len; i++) {
+        const [x, y] = ctr(game.seg(i));
+        if (i === 0) bctx.moveTo(x, y); else bctx.lineTo(x, y);
+      }
+      if (game.len === 1) { const [x, y] = ctr(game.seg(0)); bctx.lineTo(x + .01, y); }
+      bctx.stroke();
+    }
+    // head: outlined disc with eyes and a nose pointing in the heading direction
+    {
+      const [hx, hy] = ctr(game.seg(0));
+      const dx = [0, 1, 0, -1][game.dir], dy = [-1, 0, 1, 0][game.dir];
+      const R = c * 0.4;
+      bctx.fillStyle = css("--head"); bctx.strokeStyle = css("--outline"); bctx.lineWidth = 2;
+      bctx.beginPath();
+      bctx.moveTo(hx + dx * R * 1.25, hy + dy * R * 1.25);           // nose tip
+      bctx.arc(hx, hy, R, Math.atan2(dy, dx) + 0.75, Math.atan2(dy, dx) - 0.75 + 2 * Math.PI);
+      bctx.closePath(); bctx.fill(); bctx.stroke();
+      for (const side of [-1, 1]) {
+        const ex = hx + dx * R * 0.35 + (-dy) * side * R * 0.45, ey = hy + dy * R * 0.35 + dx * side * R * 0.45;
+        bctx.fillStyle = "#ffffff"; bctx.beginPath(); bctx.arc(ex, ey, R * 0.2, 0, 7); bctx.fill();
+        bctx.fillStyle = "#0b0b0b"; bctx.beginPath(); bctx.arc(ex + dx * R * 0.07, ey + dy * R * 0.07, R * 0.1, 0, 7); bctx.fill();
+      }
+    }
+    if (game.food >= 0) {
+      bctx.fillStyle = css("--food"); bctx.beginPath();
+      bctx.arc((game.food % G + .5) * c, (Math.floor(game.food / G) + .5) * c, c * .32, 0, 7); bctx.fill();
+    }
+    $("s-score").textContent = game.score; $("s-len").textContent = game.len;
+    $("s-fill").textContent = Math.round(100 * game.len / (G * G)) + "%"; $("s-steps").textContent = game.steps;
+    $("s-status").textContent = game.done ? S.CAUSES[game.cause] : (running ? "playing" : "paused");
+  }
+
+  const brain = $("brain"), cctx = brain.getContext("2d");
+  let pos = [];
+  function layoutBrain() {
+    const n = meta.n, W = brain.width, H = brain.height;
+    const cols = [[], [], []];
+    for (let i = 0; i < n; i++) cols[meta.in_group[i] >= 0 ? 0 : (meta.role_out[i] ? 2 : 1)].push(i);
+    pos = new Array(n);
+    const x0 = [W * 0.17, W * 0.5, W * 0.83];
+    cols.forEach((list, ci) => {
+      const per = Math.ceil(Math.sqrt(list.length * 0.55));
+      const rows = Math.ceil(list.length / per);
+      const dx = Math.min(W * 0.29 / per, 16), dy = Math.min((H - 20) / rows, 16);
+      list.forEach((i, k) => {
+        pos[i] = [x0[ci] + ((k % per) - (per - 1) / 2) * dx, 10 + (Math.floor(k / per) + .5) * dy + (H - 20 - rows * dy) / 2, Math.min(dx, dy)];
+      });
+    });
+  }
+  function drawBrain() {
+    const W = brain.width, H = brain.height;
+    cctx.fillStyle = css("--panel"); cctx.fillRect(0, 0, W, H);
+    const exc = css("--exc"), inh = css("--inh"), ink = css("--ink");
+    for (let i = 0; i < meta.n; i++) {
+      const [x, y, s] = pos[i]; const v = net.phi[i];
+      cctx.globalAlpha = 0.15 + 0.85 * Math.min(1, Math.abs(v));
+      cctx.fillStyle = v >= 0 ? exc : inh;
+      cctx.beginPath(); cctx.arc(x, y, s * 0.42, 0, 7); cctx.fill();
+      cctx.globalAlpha = 1;
+      if (net.mask[i] === 0) { cctx.strokeStyle = ink; cctx.lineWidth = 1.5; cctx.stroke(); }
+    }
+    const names = ["turn left", "straight", "turn right"];
+    const L = net.logits; const mx = Math.max(...L);
+    const ex = [0, 1, 2].map((a) => Math.exp(L[a] - mx)); const Z = ex.reduce((p, q) => p + q, 0);
+    let best = 0; for (let a = 1; a < 3; a++) if (L[a] > L[best]) best = a;
+    $("bars").innerHTML = names.map((nm, a) =>
+      `<span${a === best ? ' style="font-weight:600"' : ""}>${nm}</span><div class="bar"><div style="width:${(100 * ex[a] / Z).toFixed(1)}%"></div></div><span>${L[a].toFixed(2)}</span>`).join("");
+  }
+  function draw() { drawBoard(); drawBrain(); }
+
+  // ---- loop ----
+  function loop() {
+    if (!running) return;
+    if (speed === 0) {
+      const t0 = performance.now(); let n = 0;
+      while (performance.now() - t0 < 30 && tick()) n++;
+      $("turbo-info").textContent = `turbo: ${Math.round(n / 0.03)} steps/s`;
+      draw();
+      if (running) timer = requestAnimationFrame(loop);
+    } else {
+      const k = speed === 10 ? 4 : 1;
+      for (let i = 0; i < k; i++) if (!tick()) break;
+      draw();
+      if (running) timer = setTimeout(loop, speed === 10 ? 25 : 110);
+    }
+  }
+  function start() { if (game.done) newGame(); running = true; $("b-start").textContent = "Pause"; $("turbo-info").textContent = ""; loop(); }
+  function stop() { running = false; clearTimeout(timer); cancelAnimationFrame(timer); $("b-start").textContent = "Start"; draw(); }
+
+  $("b-start").onclick = () => (running ? stop() : start());
+  $("b-step").onclick = () => { stop(); tick(); draw(); };
+  $("b-new").onclick = () => { stop(); newGame(); };
+  sel.onchange = () => { stop(); loadModel(sel.value); };
+  $("b-lesion").onclick = () => { lesioned = !lesioned; $("b-lesion").classList.toggle("on", lesioned); applyMask(); draw(); };
+  document.querySelectorAll("[data-speed]").forEach((b) => b.onclick = () => {
+    speed = +b.dataset.speed; document.querySelectorAll("[data-speed]").forEach((x) => x.classList.toggle("on", x === b));
+  });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { readColors(); draw(); });
+  loadModel(modelKey);
+  // ?steps=N advances the first game N steps on load (for screenshots)
+  const pre = parseInt(new URLSearchParams(location.search).get("steps") || "0", 10);
+  for (let i = 0; i < pre && tick(); i++);
+  draw();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+ "exp": "main_sign_shuffle",
+ "seed": 1,
+ "model": "sign_shuffle",
+ "n_params": 405,
+ "train_time_s": 115.63540005683899,
+ "test_time_s": 6.859223127365112,
+ "mean_score": 21.08,
+ "median_score": 21.0,
+ "max_length": 32,
+ "mean_fill": 0.24080000000000001,
+ "win_rate": 0.0,
+ "steps_per_food": 16.057020872865277
+}

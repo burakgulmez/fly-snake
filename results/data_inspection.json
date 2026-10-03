@@ -1,0 +1,11 @@
+{
+ "n_neurons": 139255,
+ "n_connection_rows": 5342446,
+ "n_pairs": 3732460,
+ "min_pair_syn": 5,
+ "n_synapses_in_filtered_table": 50666648,
+ "nt_agree_syn_frac": 0.9264748873854848,
+ "nt_neuron_missing_syn_frac": 0.07352511261451518,
+ "nt_conflict_syn_frac": 0.0,
+ "pre_neurons_multiple_conn_nt": 0
+}

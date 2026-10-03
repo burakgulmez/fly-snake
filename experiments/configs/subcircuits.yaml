@@ -1,0 +1,43 @@
+# Subcircuit candidates. Thresholds are synapse counts per neuron pair (summed over neuropils).
+common:
+  edge_syn_threshold: 5        # edges kept among selected neurons
+  weight_fn: log1p             # |w| = log(1 + syn_count)
+  modulatory_sign: 1.0         # DA/SER/OCT mapped to +1 (assumption)
+candidates:
+  A_vpn_dn_800:                # (a) visual projection -> descending, path length <= 2
+    kind: path
+    sources_super_class: [visual_projection]
+    targets_super_class: [descending]
+    max_depth: 2
+    path_syn_threshold: 80
+  A_vpn_dn_200:
+    kind: path
+    sources_super_class: [visual_projection]
+    targets_super_class: [descending]
+    max_depth: 2
+    path_syn_threshold: 150
+  A_vpn_dn_3000:
+    kind: path
+    sources_super_class: [visual_projection]
+    targets_super_class: [descending]
+    max_depth: 2
+    path_syn_threshold: 40
+  A_vpn_dn_130:                # v2 main circuit (threshold 200)
+    kind: path
+    sources_super_class: [visual_projection]
+    targets_super_class: [descending]
+    max_depth: 2
+    path_syn_threshold: 200
+  A_vpn_dn_70:                 # v2 scale (threshold 250)
+    kind: path
+    sources_super_class: [visual_projection]
+    targets_super_class: [descending]
+    max_depth: 2
+    path_syn_threshold: 250
+  B_central_complex:           # (b) navigation: central complex compass/steering core
+    kind: types
+    core_type_regex: '^(EPG|PEG|PEN|EL$|Delta7|PFN|hDelta)'
+    input_type_regex: '^ER\d'  # ring neurons (EB input)
+    output_type_regex: '^PFL'  # premotor CX output
+    extra_output_super_class: [descending]
+    extra_output_min_syn: 10   # DNs receiving >=10 synapses in total from PFL neurons

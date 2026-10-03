@@ -1,0 +1,14 @@
+{
+ "exp": "v2_scale_A70",
+ "seed": 0,
+ "model": "connectome",
+ "n_params": 157,
+ "train_time_s": 39.712178468704224,
+ "test_time_s": 1.4250473976135254,
+ "mean_score": 28.022,
+ "median_score": 29.0,
+ "max_length": 43,
+ "mean_fill": 0.31022000000000005,
+ "win_rate": 0.0,
+ "steps_per_food": 16.36350010705874
+}

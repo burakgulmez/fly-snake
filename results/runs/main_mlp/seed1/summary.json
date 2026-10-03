@@ -1,0 +1,14 @@
+{
+ "exp": "main_mlp",
+ "seed": 1,
+ "model": "mlp",
+ "n_params": 403,
+ "train_time_s": 7.353594541549683,
+ "test_time_s": 0.31481027603149414,
+ "mean_score": 35.054,
+ "median_score": 35.0,
+ "max_length": 59,
+ "mean_fill": 0.38054,
+ "win_rate": 0.0,
+ "steps_per_food": 18.124265419067726
+}

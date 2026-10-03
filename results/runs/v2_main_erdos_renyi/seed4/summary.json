@@ -1,0 +1,14 @@
+{
+ "exp": "v2_main_erdos_renyi",
+ "seed": 4,
+ "model": "erdos_renyi",
+ "n_params": 157,
+ "train_time_s": 73.59838843345642,
+ "test_time_s": 3.662609100341797,
+ "mean_score": 27.472,
+ "median_score": 28.0,
+ "max_length": 39,
+ "mean_fill": 0.30471999999999994,
+ "win_rate": 0.0,
+ "steps_per_food": 20.336269656377404
+}

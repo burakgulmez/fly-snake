@@ -1,0 +1,8 @@
+* text=auto
+*.sh text eol=lf
+*.npz binary
+*.npy binary
+*.mp4 binary
+*.pdf binary
+*.png binary
+*.gz binary

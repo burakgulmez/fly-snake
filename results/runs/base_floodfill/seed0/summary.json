@@ -1,0 +1,14 @@
+{
+ "exp": "base_floodfill",
+ "seed": 0,
+ "model": "floodfill",
+ "n_params": 0,
+ "train_time_s": 0.0,
+ "test_time_s": 1.0583415031433105,
+ "mean_score": 68.808,
+ "median_score": 81.0,
+ "max_length": 100,
+ "mean_fill": 0.7180799999999999,
+ "win_rate": 0.032,
+ "steps_per_food": 19.945558655970235
+}

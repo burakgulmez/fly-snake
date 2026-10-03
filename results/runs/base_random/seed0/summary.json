@@ -1,0 +1,14 @@
+{
+ "exp": "base_random",
+ "seed": 0,
+ "model": "random",
+ "n_params": 0,
+ "train_time_s": 0.0,
+ "test_time_s": 0.521066427230835,
+ "mean_score": 0.17,
+ "median_score": 0.0,
+ "max_length": 5,
+ "mean_fill": 0.031700000000000006,
+ "win_rate": 0.0,
+ "steps_per_food": 123.30588235294118
+}

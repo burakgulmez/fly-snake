@@ -1,0 +1,14 @@
+{
+ "exp": "main_connectome",
+ "seed": 1,
+ "model": "connectome",
+ "n_params": 405,
+ "train_time_s": 112.4365622997284,
+ "test_time_s": 8.896036624908447,
+ "mean_score": 28.11,
+ "median_score": 28.0,
+ "max_length": 47,
+ "mean_fill": 0.31110000000000004,
+ "win_rate": 0.0,
+ "steps_per_food": 16.425329064389896
+}

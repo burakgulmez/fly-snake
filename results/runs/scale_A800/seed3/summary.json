@@ -1,0 +1,14 @@
+{
+ "exp": "scale_A800",
+ "seed": 3,
+ "model": "connectome",
+ "n_params": 405,
+ "train_time_s": 435.0450448989868,
+ "test_time_s": 30.403814554214478,
+ "mean_score": 20.594,
+ "median_score": 20.0,
+ "max_length": 31,
+ "mean_fill": 0.23594,
+ "win_rate": 0.0,
+ "steps_per_food": 16.66757307953773
+}

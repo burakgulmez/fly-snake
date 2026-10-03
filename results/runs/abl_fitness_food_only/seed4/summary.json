@@ -1,0 +1,14 @@
+{
+ "exp": "abl_fitness_food_only",
+ "seed": 4,
+ "model": "connectome",
+ "n_params": 405,
+ "train_time_s": 101.89640426635742,
+ "test_time_s": 5.773014783859253,
+ "mean_score": 24.196,
+ "median_score": 24.0,
+ "max_length": 45,
+ "mean_fill": 0.27196,
+ "win_rate": 0.0,
+ "steps_per_food": 12.780211605224004
+}

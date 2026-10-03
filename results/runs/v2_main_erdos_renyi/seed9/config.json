@@ -1,0 +1,32 @@
+{
+ "model": "erdos_renyi",
+ "circuit": "A_vpn_dn_130",
+ "feature_set": "v2_full",
+ "rho": 0.9,
+ "k_in": 8,
+ "k_out": 8,
+ "T": 10,
+ "grid": 10,
+ "timeout_k": 2,
+ "generations": 100000,
+ "popsize": 16,
+ "games_per_eval": 4,
+ "sigma0": 0.5,
+ "cma_diagonal": false,
+ "val_every": 10,
+ "val_games": 32,
+ "test_games": 500,
+ "fitness": {
+  "food": 1.0,
+  "fill": 0.0,
+  "win": 0.0,
+  "timeout": 5.0
+ },
+ "max_train_steps": 4000000,
+ "n_params": 157,
+ "build_info": {
+  "rho_raw": 8.643254421773882,
+  "edges": 650,
+  "frac_exc": 0.6276923076923077
+ }
+}

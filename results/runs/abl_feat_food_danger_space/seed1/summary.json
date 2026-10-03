@@ -1,0 +1,14 @@
+{
+ "exp": "abl_feat_food_danger_space",
+ "seed": 1,
+ "model": "connectome",
+ "n_params": 389,
+ "train_time_s": 113.94992876052856,
+ "test_time_s": 8.428544044494629,
+ "mean_score": 25.38,
+ "median_score": 26.0,
+ "max_length": 39,
+ "mean_fill": 0.2838,
+ "win_rate": 0.0,
+ "steps_per_food": 18.23892828999212
+}

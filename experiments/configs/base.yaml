@@ -1,0 +1,20 @@
+# Defaults shared by all runs; per-experiment configs override keys.
+model: connectome        # connectome | degree_shuffle | erdos_renyi | sign_shuffle | no_recurrence | mlp | greedy | floodfill | random
+circuit: A_vpn_dn_200
+feature_set: full        # food_danger | food_danger_space | full
+rho: 0.9                 # spectral radius after normalisation
+k_in: 16                 # input groups
+k_out: 16                # output (readout) groups
+T: 10                    # inner network steps per game step
+grid: 10
+timeout_k: 2             # game ends after timeout_k * grid^2 steps without food
+generations: 100000        # effectively unbounded; stop is max_train_steps
+popsize: 16
+games_per_eval: 4
+sigma0: 0.5
+cma_diagonal: false
+val_every: 10
+val_games: 32
+test_games: 500
+fitness: {food: 1.0, fill: 20.0, win: 50.0, timeout: 5.0}
+max_train_steps: 2000000  # compute budget per run (game steps summed over training games)
